@@ -12,6 +12,7 @@ public class MainFrame extends JFrame {
 	//private JTextArea textArea;
 	private JButton btn;
 	private Toolbar toolbar;
+	private FormPanel formPanel;
 	
 	public MainFrame() {
 		super("Hello World");
@@ -24,19 +25,20 @@ public class MainFrame extends JFrame {
 		
 		toolbar = new Toolbar();
 		textPanel = new TextPanel();
-		btn = new JButton("Click Me!");
-		btn.addActionListener(new ActionListener() {
-
+		formPanel = new FormPanel();
+		
+		toolbar.setStringListener(new StringListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				textPanel.appendText("Hello\n");
+			public void textEmitted(String text) {
+				textPanel.appendText(text);
 			}
-			
 		});
 		
+		// toolbar.setTextPanel(textPanel);
+		
+		add(formPanel, BorderLayout.WEST);
 		add(toolbar, BorderLayout.NORTH);
 		add(textPanel, BorderLayout.CENTER);
-		add(btn, BorderLayout.SOUTH);
 		
 		//without default close operation, the program wont stop after close the window
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

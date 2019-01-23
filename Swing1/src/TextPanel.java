@@ -1,10 +1,11 @@
 import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class TextPanel extends JPanel {
+public class TextPanel extends JPanel{
 	
 	private JTextArea textArea;
 	
@@ -18,4 +19,5 @@ public class TextPanel extends JPanel {
 	public void appendText(String text) {
 		textArea.append(text);
 	}
+	
 }
